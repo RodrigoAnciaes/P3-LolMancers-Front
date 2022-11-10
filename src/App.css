@@ -1,0 +1,333 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+.container{
+  font-size: 40px;
+  gap:1rem;
+  
+  
+}
+.container2{
+  display: flex;
+  flex-direction: row;
+  justify-content: center; 
+  align-items: center;  
+  flex-wrap:wrap;
+}
+
+.container3{
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;  
+  flex-wrap:wrap;
+  align-content: stretch;
+}
+.container4{
+  display: flex;
+  flex-direction: row;
+  justify-content: center; 
+  align-items: center;  
+  flex-wrap:wrap;
+  gap:3rem;
+}
+.container5{
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;  
+  flex-wrap:wrap;
+  gap:1rem;
+}
+.NomeHeader{
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  font-size:40px;
+    
+}
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+.autoresize{
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    padding: 15px;
+
+}
+
+.form-card-title{
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  padding: 10px;
+}
+
+.title{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  
+  font-size:40px;
+  justify-content:center;
+  color: #ebebff;
+}
+.title2{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  
+  font-size:40px;
+  justify-content:center;
+  color: #000000;
+}
+.btn {
+  /* width: 50%;
+  height: 50%; */
+
+  position: relative;
+  display: block;
+  padding: 10px 10px 10px 10px; 
+
+  overflow: hidden;
+
+  border-width: 0;
+  outline: none;
+  border-radius: 2px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+
+  background-color: #ae68f1;
+
+  transition: background-color 0.3s;
+
+  font-weight: bold;
+}
+.btnbar {
+  /* width: 50%;
+  height: 50%; */
+  position: relative;
+  display: block;
+  padding: 10px 10px 10px 10px; 
+
+  overflow: hidden;
+  font-size:25px;
+  justify-content:center;
+  color: #ebebff;
+  border-width: 0;
+  outline: none;
+  border-radius: 2px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+
+  background-color: #a851f9;
+
+  transition: background-color 0.3s;
+
+  font-weight: bold;
+}
+.btn > * {
+  position: relative;
+}
+.rotas {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  align-content: center;
+  gap: 1rem;
+}
+.btn:before {
+  content: "";
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  display: block;
+  width: 0;
+  padding-top: 0;
+
+  border-radius: 100%;
+
+  background-color: rgba(236, 240, 241, 0.3);
+
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.btn:active:before {
+  width: 120%;
+  padding-top: 120%;
+
+  transition: width 0.2s ease-out, padding-top 0.2s ease-out;
+
+} 
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;  
+  gap:0.5rem;
+}
+
+.form-card{
+  margin: 25px;
+  padding: 7.5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around; 
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+  width: 32.5%;
+  height: 11.5rem;
+  border-radius: 5px;
+}
+.card-container{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  
+  justify-content: space-around;
+  
+  flex-wrap: wrap;
+  
+}
+.card{
+  
+  width: 16rem;
+  height: 8rem;
+  display: flex;
+  flex-direction: column;
+ 
+  justify-content: space-between;
+  
+
+  border-radius: 5px;
+  box-shadow: 0 8px 8px rgba(0, 0, 0, 0.6);
+  transition: background-color 0.3s;
+  padding: 1rem;
+  margin-bottom: 2rem;  
+  
+}
+
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.User{
+  display: flex;
+  background-color: gray; 
+  width: fit-content;
+  padding: 1rem;
+  flex-direction: column ;
+  justify-content: space-between;
+  margin: 0.9rem; 
+  border-radius: 0.5rem;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  font-family: 'Permanent Marker', cursive;
+  font-size: 1.5rem;
+}
+
+.Saved_player{
+  display: flex;
+  background-color: gray; 
+  width: fit-content;
+  padding: 1rem;
+  flex-direction: column ;
+  justify-content: space-between;
+  margin: 0.9rem; 
+  border-radius: 0.5rem;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  font-family: 'Permanent Marker', cursive;
+  font-size: 1.5rem;
+}
+
+.form{
+  position:relative;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: left;
+  padding: 1rem;
+  width: 35rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  margin: 1rem;
+  background-color: #f5f5f5;
+
+}
+
+.UserIcon{
+  width: 5.5rem;
+  height: 5.5rem;
+  border-radius: 50%;
+  margin: 0.5rem;
+  align-self: center;
+}
+
+.UserNick{
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0.5rem;
+  align-self: center;
+}
+
+.UserLevel{
+  font-size: 1.5rem;
+  margin: 0.5rem;
+  align-self: center;
+}
+
+html{
+  font-family: 'Roboto', sans-serif;
+  background-color: lightgray;
+}
+
+.testNav{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1rem;
+  align-items: center;
+  
+  width: 100%;
+  background-color: #ae68f1;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.App-logo{
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+}
