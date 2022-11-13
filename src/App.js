@@ -7,6 +7,7 @@ import Login from './components/Login/Login';
 import * as config from '../src/config.js'
 import Info from "./components/info";
 import Amigos from "./components/Amigos/Amigos";
+import Partidas from "./components/Partidas/Partidas";
 
 import Rotacao from "./components/rotacao/rotacao";
 import {Routes,Route} from "react-router-dom";
@@ -52,6 +53,7 @@ function App() {
       <Route path = '/' element={<Info name={userInRiotServer.name} level={userInRiotServer.summonerLevel} link={"https://ddragon.leagueoflegends.com/cdn/12.20.1/img/profileicon/"+userInRiotServer.profileIconId+".png"}></Info>}/>
       <Route path = '/Amigos' element={<Amigos name={userInRiotServer.name}></Amigos>}/>
       <Route path = '/rotacao' element={<Rotacao name={userInRiotServer.name}></Rotacao>}/>
+      <Route path = '/Partidas' element={<Partidas name={userInRiotServer.name}></Partidas>}/>
     </Routes>
    </>
   );

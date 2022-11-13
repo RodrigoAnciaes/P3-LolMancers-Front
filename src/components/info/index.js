@@ -35,6 +35,9 @@ export default function Info(props) {
       <Link to ='/rotacao' style={{ textDecoration: 'none' }}>
         <button className='btnbar'>Rotação Semanal Grátis</button>
       </Link>
+      <Link to ='/Partidas' style={{ textDecoration: 'none' }}>
+        <button className='btnbar'>Últimas 5 partidas</button>
+      </Link>
     </div>
     </div>
     </div>
