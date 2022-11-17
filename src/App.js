@@ -3,13 +3,13 @@ import './App.css';
 import React from "react"
 import { useState } from "react";
 import axios from 'axios';
-import Login from './components/Login/Login';
+import Login from './Paginas/Login/Login';
 import * as config from '../src/config.js'
-import Info from "./components/info";
-import Amigos from "./components/Amigos/Amigos";
-import Partidas from "./components/Partidas/Partidas";
+import Info from "./Paginas/info";
+import Amigos from "./Paginas/Amigos/Amigos";
+import Partidas from "./Paginas/Partidas/Partidas";
 
-import Rotacao from "./components/rotacao/rotacao";
+import Rotacao from "./Paginas/rotacao/rotacao";
 import {Routes,Route} from "react-router-dom";
 
 var n = 0;
