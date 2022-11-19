@@ -18,6 +18,9 @@
   
   
 }
+.senha{
+  -webkit-text-security: disc;
+}
 .container2{
   display: flex;
   flex-direction: row;

@@ -20,7 +20,7 @@ export default function Amigos(props) {
 
   function getAmigos(name){
     
-    var APISavedPlayers = "https://tranquil-fjord-45089.herokuapp.com/api/saved_player_operations/?summoner_name="+props.name.toLowerCase()
+    var APISavedPlayers = "https://127.0.0.1:8000/api/saved_player_operations/?summoner_name="+props.name.toLowerCase()
     
     axios.get(APISavedPlayers)
       .then((response) => {
@@ -31,7 +31,7 @@ export default function Amigos(props) {
       
   }
   function getPlayers(name){
-    var APIplayers = "https://tranquil-fjord-45089.herokuapp.com/api/user_operations/";
+    var APIplayers = "https://127.0.0.1:8000/api/user_operations/";
     axios.get(APIplayers)
       .then((response) => {
         setPlayers(response.data);
@@ -40,7 +40,7 @@ export default function Amigos(props) {
   }
   function deletePlayers(name){
     var lower = name.toLowerCase();
-    var APISavedPlayers = "https://tranquil-fjord-45089.herokuapp.com/api/saved_player_operations/?summoner_name="+props.name.toLowerCase()+"&saved_player="+lower;
+    var APISavedPlayers = "https://127.0.0.1:8000/api/saved_player_operations/?summoner_name="+props.name.toLowerCase()+"&saved_player="+lower;
     axios.delete(APISavedPlayers).then((response) => {
       setAtualiza(atualiza+1);
     });
@@ -68,7 +68,7 @@ export default function Amigos(props) {
   }
   
   function savePlayer(event){
-    var APISavedPlayers = "https://tranquil-fjord-45089.herokuapp.com/api/saved_player_operations/?summoner_name="+props.name.toLowerCase()+"&saved_player="+pesquisa.toLowerCase();
+    var APISavedPlayers = "https://127.0.0.1:8000/api/saved_player_operations/?summoner_name="+props.name.toLowerCase()+"&saved_player="+pesquisa.toLowerCase();
     var APIString = "https://br1.api.riotgames.com/lol/summoner/v4/summoners/by-name/"+pesquisa+"?api_key="+key;
     //console.log("Pesquisa:"+pesquisa)
     
@@ -76,7 +76,7 @@ export default function Amigos(props) {
 
     axios.get(APIString).then(function(response){
       //sucesso
-      var APIPlayer = "https://tranquil-fjord-45089.herokuapp.com/api/user_operations/";
+      var APIPlayer = "https://127.0.0.1:8000/api/user_operations/";
       
       // Post para o banco de dados com o body no formato aplication/json
       axios.post(APIPlayer, {

@@ -16,7 +16,7 @@ function AtualizaPlayer(username){
   axios.get(APIString).then(function(response){
     //sucesso
     console.log(response.data);
-    var APIPlayer = "https://tranquil-fjord-45089.herokuapp.com/api/user/?summoner_name="+username;
+    var APIPlayer = "http://127.0.0.1:8000/api/user/?summoner_name="+username;
     
     // Post para o banco de dados com o body no formato aplication/json
     axios.post(APIPlayer, {
@@ -35,27 +35,58 @@ function AtualizaPlayer(username){
 }
 
 
-async function loginUser(username) {
+async function loginUser(username,password) {
+  
   return axios
-  .get("https://tranquil-fjord-45089.herokuapp.com/api/user/?summoner_name="+username)
+  .post("http://127.0.0.1:8000/api/login/",{
+    "username": username,
+    "password":password
+  })
   .then(response => {
-    AtualizaPlayer(username);
+    //AtualizaPlayer(username);
+    
     return response.data;
   }
   )
+  .catch(error => {console.log(error)});
+  
+ }
+ async function autenticaUsuario(token) {
+  
+  return axios
+  .get("http://127.0.0.1:8000/api/get_user/",{headers:{"Authorization":`Token ${token.token}`}}
+  )
  }
 
-export default function Login({ setToken }) {
+export default function Login({ setNome },{setRegistro}) {
 
 
   const [username, setUserName] = useState();
+  const [password, setPassword] = useState();
+  const [loginfalha, setLoginfalha] = useState();
+  const [logincadastrado, setLogincadastrado] = useState();
+ 
   const handleSubmit = async e => {
     e.preventDefault();
-    const token = await loginUser(username.toLowerCase());
-    setToken(token);
-    console.log(token);
+    const token = await loginUser(username,password);
+    console.log(token)
+    if (token == null){
+      setLoginfalha(true);
+    }
+    else{
+      setLoginfalha(false);
+      console.log(token)
+      const nomeusuario = await autenticaUsuario(token);
+      console.log(nomeusuario.data);
+      setNome(nomeusuario.data);
+      
+    }
+    //console.log(token);
 
 
+  }
+  const cadastrado = async e => {
+    setRegistro(false);
   }
   return(
     <div className='container4'>
@@ -70,16 +101,24 @@ export default function Login({ setToken }) {
       <form onSubmit={handleSubmit}>
       <div className="form">
           <input className='autoresize'placeholder='Nick'type="texto" onChange={e => setUserName(e.target.value)}/>
+          <input className='autoresize'placeholder='Senha'type="texto" onChange={e => setPassword(e.target.value)}/>
 
           <button className='btn'type="submit">Log</button>
         </div>
       </form>
+      <div>Deseja se cadastrar?:</div>
+      <form onSubmit={cadastrado}>
+      <button className='btn'type="submit">Cadastro</button>
+      </form>
+      {loginfalha==true?
+      <p className='title2'>Login negado!</p>:null}
+      
     </div>
     </div>
   )
 }
 
 Login.propTypes = {
-  setToken: PropTypes.func.isRequired
+  setNome: PropTypes.func.isRequired
 };
 

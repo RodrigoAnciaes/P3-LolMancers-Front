@@ -4,8 +4,16 @@ import logo from '../../../src/poro.jpg';
 import { Link} from "react-router-dom";
 
 
-export default function Info(props) {
-  
+export default function Info(props,{setRegistro}) {
+  const logout = async e => {
+    e.preventDefault();
+    setRegistro(false);
+    //const token = await cadastraUser(username.toLowerCase(),password.toLowerCase());
+    //setToken(token);
+    //console.log(token);
+
+
+  }
 
   return (
     <div className='container4'>
@@ -38,6 +46,9 @@ export default function Info(props) {
       <Link to ='/Partidas' style={{ textDecoration: 'none' }}>
         <button className='btnbar'>Últimas 5 partidas</button>
       </Link>
+      <form onSubmit={logout}>
+      <button className='btn'type="submit">Logout</button>
+      </form>
     </div>
     </div>
     </div>

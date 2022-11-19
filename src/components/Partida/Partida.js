@@ -8,6 +8,7 @@ import * as config from '../../config.js'
 import Navbar from '../Navbar/navbar';
 
 export default function Partida(props) { 
+    
     return (
         <div className="container_partidas">
         <div className="NomeHeader">Últimas 5 partidas</div>
