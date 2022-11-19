@@ -8,6 +8,7 @@ import * as config from '../src/config.js'
 import Info from "./Paginas/info";
 import Amigos from "./Paginas/Amigos/Amigos";
 import Partidas from "./Paginas/Partidas/Partidas";
+import Registro from "./Paginas/Registro/Registro";
 
 import Rotacao from "./Paginas/rotacao/rotacao";
 import {Routes,Route} from "react-router-dom";
@@ -18,6 +19,9 @@ function App() {
   const key = config.API_KEY;
  
   const [userInRiotServer, setUser] = useState({});
+  const [userInDataBase, setNome] = useState();
+  const [registrofeito, setRegistro] = useState();
+  const [chave, setKey] = useState();
 
   function searchUser(name){
     var APIString = "https://br1.api.riotgames.com/lol/summoner/v4/summoners/by-name/"+name+"?api_key="+key;
@@ -34,19 +38,33 @@ function App() {
     });
   }
   
-  const [userInDataBase, setToken] = useState();
-  const [chave, setKey] = useState();
   
-  if(!userInDataBase) {
-    return <Login setToken={setToken} />
+  
+  /*if(!userInDataBase) {
+    return <Registro setToken={setToken} />
 
   }
   if (n === 0){
     searchUser(userInDataBase.summoner_name);
     n = 1;
   }
-  console.log(userInDataBase)
-  
+  console.log(userInDataBase)*/
+  //console.log(typeof userInDataBase);
+  if (!registrofeito){
+    console.log('oi')
+    return <Registro setRegistro={setRegistro}/>
+  }
+  if (registrofeito && !userInDataBase){
+    console.log('oi2')
+    return <Login setNome={setNome} setRegistro={setRegistro}/>
+  }
+  console.log(userInDataBase);
+  if (typeof userInDataBase == "string" && typeof userInDataBase != "undefined" && n===0){
+    searchUser(userInDataBase);
+    console.log(userInRiotServer.name);
+    n = 1;
+  } 
+  //console.log(userInRiotServer.name);
   return (
     <>
     <Routes>
