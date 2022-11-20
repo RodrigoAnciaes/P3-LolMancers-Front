@@ -68,11 +68,16 @@ export default function Amigos(props) {
   }
   function deletePlayers(name){
     var lower = name.toLowerCase();
+    console.log(lower);
     var APISavedPlayers = "http://127.0.0.1:8000/api/saved_player_operations/?summoner_name="+props.name.toLowerCase()+"&saved_player="+lower;
-    axios.delete(APISavedPlayers,{headers:{"Authorization":`Token ${props.tokenzada}`}}).then((response) => {
-      setAtualiza(atualiza+1);
-    });
+    //axios.delete(APISavedPlayers,{"summoner_name":lower},{headers:{"Authorization":`Token ${props.tokenzada}`}}).then((response) => {setAtualiza(atualiza+1);});
+    axios({
+      method:'DELETE',
+      url:APISavedPlayers,
+      data:{"summoner_name":lower},
+      headers:{'Authorization':`Token ${props.tokenzada}`
     
+    }}).then((response)=>{setAtualiza(atualiza+1);});
   }
 
   function filtraPlayers(name){
