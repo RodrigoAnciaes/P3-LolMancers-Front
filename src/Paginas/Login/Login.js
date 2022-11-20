@@ -10,20 +10,24 @@ const key = config.API_KEY;
 function AtualizaPlayer(username){
   var APIString = "https://br1.api.riotgames.com/lol/summoner/v4/summoners/by-name/"+username+"?api_key="+key;
   //console.log("Pesquisa:"+pesquisa)
-  
+  console.log('entrou atualiza player')
   
 
   axios.get(APIString).then(function(response){
     //sucesso
-    console.log(response.data);
-    var APIPlayer = "http://127.0.0.1:8000/api/user/?summoner_name="+username;
     
+    console.log('entrou get api string, preparando para post no user')
+    console.log(response.data.name)
+    var APIPlayer = "http://127.0.0.1:8000/api/user/?summoner_name="+username;
+    console.log(APIPlayer);
     // Post para o banco de dados com o body no formato aplication/json
-    axios.post(APIPlayer, {
+    //axios.get(APIPlayer);
+    axios.get(APIPlayer, {
       "summoner_name": response.data.name,
       "summoner_id": response.data.id,
       "summoner_level": response.data.summonerLevel,
       "profile_icon_id": response.data.profileIconId,
+      
     }).then((response)=>{console.log(response)}
     );
    
@@ -43,7 +47,7 @@ async function loginUser(username,password) {
     "password":password
   })
   .then(response => {
-    //AtualizaPlayer(username);
+    
     
     return response.data;
   }
@@ -59,8 +63,6 @@ async function loginUser(username,password) {
  }
 
 export default function Login({ setNome },{setRegistro}) {
-
-
   const [username, setUserName] = useState();
   const [password, setPassword] = useState();
   const [loginfalha, setLoginfalha] = useState();
@@ -72,18 +74,18 @@ export default function Login({ setNome },{setRegistro}) {
     console.log(token)
     if (token == null){
       setLoginfalha(true);
+      
     }
     else{
       setLoginfalha(false);
       console.log(token)
       const nomeusuario = await autenticaUsuario(token);
       console.log(nomeusuario.data);
-      setNome(nomeusuario.data);
-      
+      setNome([nomeusuario.data,token.token]);
+      console.log(token.token);
+      AtualizaPlayer(username,token);
     }
     //console.log(token);
-
-
   }
   const cadastrado = async e => {
     setRegistro(false);
@@ -98,16 +100,23 @@ export default function Login({ setNome },{setRegistro}) {
    
     <div className="login-wrapper">
       <h1 className='title2'>Por favor, faça o Login</h1>
+      
       <form onSubmit={handleSubmit}>
+        
       <div className="form">
+      
+        
           <input className='autoresize'placeholder='Nick'type="texto" onChange={e => setUserName(e.target.value)}/>
           <input className='autoresize'placeholder='Senha'type="texto" onChange={e => setPassword(e.target.value)}/>
 
           <button className='btn'type="submit">Log</button>
+          
         </div>
+        
       </form>
       <div>Deseja se cadastrar?:</div>
       <form onSubmit={cadastrado}>
+        
       <button className='btn'type="submit">Cadastro</button>
       </form>
       {loginfalha==true?
@@ -119,6 +128,7 @@ export default function Login({ setNome },{setRegistro}) {
 }
 
 Login.propTypes = {
-  setNome: PropTypes.func.isRequired
+  setNome: PropTypes.func.isRequired,
+  
 };
 

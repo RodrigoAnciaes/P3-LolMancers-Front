@@ -17,12 +17,40 @@ export default function Amigos(props) {
   const[atualiza,setAtualiza]=useState(1);
 
   const filtra=[];
+  /*function AtualizaPlayer(username){
+    var APIString = "https://br1.api.riotgames.com/lol/summoner/v4/summoners/by-name/"+username+"?api_key="+key;
+    //console.log("Pesquisa:"+pesquisa)
+    
+    
+  
+    axios.get(APIString).then(function(response){
+      //sucesso
+     
+      console.log(response.data);
+      var APIPlayer = "http://127.0.0.1:8000/api/user/?summoner_name="+props.name;
+      console.log(APIPlayer);
+      // Post para o banco de dados com o body no formato aplication/json
+      axios.post(APIPlayer, {
+        "summoner_name": response.data.name,
+        "summoner_id": response.data.id,
+        "summoner_level": response.data.summonerLevel,
+        "profile_icon_id": response.data.profileIconId,
+        
+      }).then((response)=>{console.log(response)}
+      );
+     
+    }).catch(function(error){
+      //erro
+      console.log(error);
+    });
+    
+  }*/
 
   function getAmigos(name){
     
-    var APISavedPlayers = "https://127.0.0.1:8000/api/saved_player_operations/?summoner_name="+props.name.toLowerCase()
+    var APISavedPlayers = "http://127.0.0.1:8000/api/saved_player_operations/?summoner_name="+props.name.toLowerCase()
     
-    axios.get(APISavedPlayers)
+    axios.get(APISavedPlayers,{headers:{"Authorization":`Token ${props.tokenzada}`}})
       .then((response) => {
         setAmigos(response.data);
         console.log(amigos,response.data);
@@ -31,7 +59,7 @@ export default function Amigos(props) {
       
   }
   function getPlayers(name){
-    var APIplayers = "https://127.0.0.1:8000/api/user_operations/";
+    var APIplayers = "http://127.0.0.1:8000/api/user_operations/";
     axios.get(APIplayers)
       .then((response) => {
         setPlayers(response.data);
@@ -40,8 +68,8 @@ export default function Amigos(props) {
   }
   function deletePlayers(name){
     var lower = name.toLowerCase();
-    var APISavedPlayers = "https://127.0.0.1:8000/api/saved_player_operations/?summoner_name="+props.name.toLowerCase()+"&saved_player="+lower;
-    axios.delete(APISavedPlayers).then((response) => {
+    var APISavedPlayers = "http://127.0.0.1:8000/api/saved_player_operations/?summoner_name="+props.name.toLowerCase()+"&saved_player="+lower;
+    axios.delete(APISavedPlayers,{headers:{"Authorization":`Token ${props.tokenzada}`}}).then((response) => {
       setAtualiza(atualiza+1);
     });
     
@@ -68,7 +96,8 @@ export default function Amigos(props) {
   }
   
   function savePlayer(event){
-    var APISavedPlayers = "https://127.0.0.1:8000/api/saved_player_operations/?summoner_name="+props.name.toLowerCase()+"&saved_player="+pesquisa.toLowerCase();
+    console.log(props.tokenzada)
+    var APISavedPlayers = "http://127.0.0.1:8000/api/saved_player_operations/?summoner_name="+props.name.toLowerCase()+"&saved_player="+pesquisa.toLowerCase();
     var APIString = "https://br1.api.riotgames.com/lol/summoner/v4/summoners/by-name/"+pesquisa+"?api_key="+key;
     //console.log("Pesquisa:"+pesquisa)
     
@@ -76,7 +105,8 @@ export default function Amigos(props) {
 
     axios.get(APIString).then(function(response){
       //sucesso
-      var APIPlayer = "https://127.0.0.1:8000/api/user_operations/";
+      console.log(response.data)
+      var APIPlayer = "http://127.0.0.1:8000/api/user_operations/";
       
       // Post para o banco de dados com o body no formato aplication/json
       axios.post(APIPlayer, {
@@ -87,7 +117,8 @@ export default function Amigos(props) {
       }).then((response)=>{if(amigos.includes(pesquisa.toLowerCase())){
         console.log('já existe');
       }else{
-        axios.post(APISavedPlayers);
+        //axios.post(APISavedPlayers);
+        axios.post(APISavedPlayers,{"summoner_name":pesquisa.toLowerCase()},{headers:{"Authorization":`Token ${props.tokenzada}`}});
       }
       setAtualiza(atualiza+1)}
 
@@ -112,6 +143,7 @@ export default function Amigos(props) {
 
   useEffect(()=>{
     fazTudo();
+    //AtualizaPlayer();
   },[])
   useEffect(()=>{
     fazTudo();

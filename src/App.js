@@ -21,8 +21,9 @@ function App() {
   const [userInRiotServer, setUser] = useState({});
   const [userInDataBase, setNome] = useState();
   const [registrofeito, setRegistro] = useState();
+  const [tokenzada, setToken] = useState();
   const [chave, setKey] = useState();
-
+  
   function searchUser(name){
     var APIString = "https://br1.api.riotgames.com/lol/summoner/v4/summoners/by-name/"+name+"?api_key="+key;
     
@@ -59,8 +60,8 @@ function App() {
     return <Login setNome={setNome} setRegistro={setRegistro}/>
   }
   console.log(userInDataBase);
-  if (typeof userInDataBase == "string" && typeof userInDataBase != "undefined" && n===0){
-    searchUser(userInDataBase);
+  if (typeof userInDataBase[0] == "string" && typeof userInDataBase[0] != "undefined" && n===0){
+    searchUser(userInDataBase[0]);
     console.log(userInRiotServer.name);
     n = 1;
   } 
@@ -69,7 +70,7 @@ function App() {
     <>
     <Routes>
       <Route path = '/' element={<Info name={userInRiotServer.name} level={userInRiotServer.summonerLevel} link={"https://ddragon.leagueoflegends.com/cdn/12.20.1/img/profileicon/"+userInRiotServer.profileIconId+".png"}></Info>}/>
-      <Route path = '/Amigos' element={<Amigos name={userInRiotServer.name}></Amigos>}/>
+      <Route path = '/Amigos' element={<Amigos name={userInRiotServer.name} tokenzada={userInDataBase[1]} ></Amigos>} />
       <Route path = '/rotacao' element={<Rotacao name={userInRiotServer.name}></Rotacao>}/>
       <Route path = '/Partidas' element={<Partidas name={userInRiotServer.name}></Partidas>}/>
     </Routes>
