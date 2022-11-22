@@ -46,6 +46,9 @@ export default function Info(props,{setRegistro}) {
       <Link to ='/Partidas' style={{ textDecoration: 'none' }}>
         <button className='btnbar'>Últimas 5 partidas</button>
       </Link>
+      <Link to ='/perfil' style={{ textDecoration: 'none' }}>
+        <button className='btnbar'>Meu Perfil</button>
+      </Link>
       <form onSubmit={logout}>
       <button className='btn'type="submit">Logout</button>
       </form>

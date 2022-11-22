@@ -20,6 +20,9 @@ export default function Navbar(){
       <Link to ="/Partidas" style={{ textDecoration: 'none' }}>
         <button className='btnbar'>Partidas</button>
       </Link>
+      <Link to = "/perfil" style={{ textDecoration: 'none' }}>
+        <button className='btnbar'>Perfil</button>
+      </Link>
      
      
     </div>)}

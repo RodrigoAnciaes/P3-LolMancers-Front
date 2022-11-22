@@ -12,6 +12,7 @@ import Registro from "./Paginas/Registro/Registro";
 
 import Rotacao from "./Paginas/rotacao/rotacao";
 import {Routes,Route} from "react-router-dom";
+import Perfil from './Paginas/perfil/Perfil';
 
 var n = 0;
 function App() {
@@ -73,6 +74,7 @@ function App() {
       <Route path = '/Amigos' element={<Amigos name={userInRiotServer.name} tokenzada={userInDataBase[1]} ></Amigos>} />
       <Route path = '/rotacao' element={<Rotacao name={userInRiotServer.name}></Rotacao>}/>
       <Route path = '/Partidas' element={<Partidas name={userInRiotServer.name}></Partidas>}/>
+      <Route path = '/perfil' element={<Perfil name={userInRiotServer.name} level={userInRiotServer.summonerLevel} link={"https://ddragon.leagueoflegends.com/cdn/12.22.1/img/profileicon/"+userInRiotServer.profileIconId+".png"}></Perfil>}/>
     </Routes>
    </>
   );
