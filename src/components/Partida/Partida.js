@@ -26,7 +26,7 @@ export default function Partida(props) {
                     <div className="infoplayer">
                         <div className={`infoplayername${data.summonerName==props.name? "data":""}`}>PLAYER {participantIndex+1}: {data.summonerName}</div>
                         <div className="infoplayerkda"> KDA: {data.kills} / {data.deaths} / {data.assists} </div>
-                        <img className='UserIcon2' width="100" height="100" src={"http://ddragon.leagueoflegends.com/cdn/12.6.1/img/champion/"+data.championName+".png"}></img></div>
+                        <img className='UserIcon2' width="100" height="100" src={"http://ddragon.leagueoflegends.com/cdn/12.22.1/img/champion/"+data.championName+".png"}></img></div>
                 
                     )}
                     </div>
@@ -37,7 +37,7 @@ export default function Partida(props) {
                     <div className="infoplayer">
                         <div className={`infoplayername${data.summonerName==props.name? "data":""}`}>PLAYER {participantIndex+1}: {data.summonerName}</div>
                         <div className="infoplayerkda"> KDA: {data.kills} / {data.deaths} / {data.assists} </div>
-                        <img className='UserIcon2' width="100" height="100" src={"http://ddragon.leagueoflegends.com/cdn/12.6.1/img/champion/"+data.championName+".png"}></img></div>
+                        <img className='UserIcon2' width="100" height="100" src={"http://ddragon.leagueoflegends.com/cdn/12.22.1/img/champion/"+data.championName+".png"}></img></div>
             
                 )}
                 </div>

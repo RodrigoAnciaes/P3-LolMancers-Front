@@ -69,7 +69,7 @@ function App() {
   return (
     <>
     <Routes>
-      <Route path = '/' element={<Info name={userInRiotServer.name} level={userInRiotServer.summonerLevel} link={"https://ddragon.leagueoflegends.com/cdn/12.20.1/img/profileicon/"+userInRiotServer.profileIconId+".png"}></Info>}/>
+      <Route path = '/' element={<Info name={userInRiotServer.name} level={userInRiotServer.summonerLevel} link={"https://ddragon.leagueoflegends.com/cdn/12.22.1/img/profileicon/"+userInRiotServer.profileIconId+".png"}></Info>}/>
       <Route path = '/Amigos' element={<Amigos name={userInRiotServer.name} tokenzada={userInDataBase[1]} ></Amigos>} />
       <Route path = '/rotacao' element={<Rotacao name={userInRiotServer.name}></Rotacao>}/>
       <Route path = '/Partidas' element={<Partidas name={userInRiotServer.name}></Partidas>}/>
