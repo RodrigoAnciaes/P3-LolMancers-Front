@@ -3,17 +3,18 @@ import logo from '../../../src/poro.jpg';
 
 import { Link} from "react-router-dom";
 
+function logout(){
+  localStorage.removeItem('token');
+  // recarrega a página
+  window.location.reload();
+}
+
 
 export default function Info(props,{setRegistro}) {
-  const logout = async e => {
-    e.preventDefault();
-    setRegistro(false);
-    //const token = await cadastraUser(username.toLowerCase(),password.toLowerCase());
-    //setToken(token);
-    //console.log(token);
+  
+  
 
 
-  }
 
   return (
     <div className='container4'>
@@ -49,9 +50,7 @@ export default function Info(props,{setRegistro}) {
       <Link to ='/perfil' style={{ textDecoration: 'none' }}>
         <button className='btnbar'>Meu Perfil</button>
       </Link>
-      <form onSubmit={logout}>
-      <button className='btn'type="submit">Logout</button>
-      </form>
+      <button className='btn'onClick={logout}>Logout</button>
     </div>
     </div>
     </div>
