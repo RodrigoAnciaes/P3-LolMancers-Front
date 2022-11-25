@@ -53,9 +53,7 @@ export default function Info(props,{setRegistro}) {
       <button className='btnbar'onClick={logout}>Logout</button>
     </div>
     </div>
-    <div class="alert alert-danger" role="alert">
-  A simple danger alert—check it out!
-</div>
+    
     </div>
     );
 }
