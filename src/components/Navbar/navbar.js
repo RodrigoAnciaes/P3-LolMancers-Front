@@ -1,6 +1,12 @@
 import logo from '../../../src/poro.jpg';
 
 import { Link} from "react-router-dom";
+function logout(){
+  localStorage.removeItem('token');
+  // recarrega a página
+  window.location.reload();
+}
+
 
 export default function Navbar(){
     return(
@@ -22,6 +28,9 @@ export default function Navbar(){
       </Link>
       <Link to = "/perfil" style={{ textDecoration: 'none' }}>
         <button className='btnbar'>Perfil</button>
+      </Link>
+      <Link to ="/" style ={{ textDecoration: 'none' }}>
+        <button className='btnbar'onClick={logout}>Logout</button>
       </Link>
      
      
