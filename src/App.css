@@ -158,6 +158,30 @@
 
   font-weight: bold;
 }
+
+.btn-perfil{
+  position: relative;
+  display: block;
+  /* padding: 10px 10px 10px 10px;  */
+  font-family: 'Permanent Marker', cursive;
+  overflow: hidden;
+  font-size:20px;
+  justify-content:center;
+  align-items:center;
+  /* align-self: center; */
+  /* color: #ebebff; */
+  border-width: 0;
+  outline: none;
+  border-radius: 2px;
+  cursor: pointer;
+
+  background-color: gray; 
+
+  transition: background-color 0.3s;
+
+  /* font-weight: bold; */
+}
+
 .btnbar {
   /* width: 50%;
   height: 50%; */
@@ -433,4 +457,48 @@ html{
 }
 .container_partidas .ring:nth-child(3){
   position:absolute;
+}
+
+.maestria{
+  position:relative;
+  width:100%;
+  display:flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items:center;
+}
+
+.maestria-container{
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  align-items: center;
+  padding: 1rem;
+  width: 52rem;
+  border-radius: 0.5rem;
+  /* box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22); */
+  margin: 0rem;
+  /* background-color: #e01a1a; */
+}
+
+.maestria-content{
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  font-family: 'Permanent Marker', cursive;
+  align-items: center;
+  padding: 1rem;
+  /* width: 75%; */
+  border-radius: 0.5rem;
+  /* box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22); */
+  margin: 0rem;
+  background-color: #786a6a;
+}
+
+.maestria-one{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /* align-items: center; */
+
 }

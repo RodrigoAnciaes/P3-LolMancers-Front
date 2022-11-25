@@ -35,6 +35,9 @@ export default function Info(props,{setRegistro}) {
         </> 
         : 
         <><p className='UserNick'>No player data</p></>}
+        <Link to="/maestria" style={{ textDecoration: 'none' }}>
+          <button className='btn-perfil'>Maestria</button>
+        </Link>
     </div>
     <div className='NomeHeader'>O que você deseja fazer?</div>
     <div className="rotas">

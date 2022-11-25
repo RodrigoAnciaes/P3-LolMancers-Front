@@ -9,6 +9,7 @@ import Info from "./Paginas/info";
 import Amigos from "./Paginas/Amigos/Amigos";
 import Partidas from "./Paginas/Partidas/Partidas";
 import Registro from "./Paginas/Registro/Registro";
+import Maestria from "./components/Maestria/maestria";
 
 import Rotacao from "./Paginas/rotacao/rotacao";
 import {Routes,Route} from "react-router-dom";
@@ -75,6 +76,7 @@ function App() {
       <Route path = '/rotacao' element={<Rotacao name={userInRiotServer.name}></Rotacao>}/>
       <Route path = '/Partidas' element={<Partidas name={userInRiotServer.name}></Partidas>}/>
       <Route path = '/perfil' element={<Perfil name={userInRiotServer.name} level={userInRiotServer.summonerLevel} link={"https://ddragon.leagueoflegends.com/cdn/12.22.1/img/profileicon/"+userInRiotServer.profileIconId+".png"}></Perfil>}/>
+      <Route path = '/maestria' element={<Maestria name={userInRiotServer.name}></Maestria>}/>
     </Routes>
    </>
   );
