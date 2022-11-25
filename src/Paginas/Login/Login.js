@@ -4,6 +4,8 @@ import logo from '../../../src/poro.jpg';
 
 import axios from 'axios';
 import * as config from '../../config.js'
+import Alert from 'react-bootstrap/Alert';
+
 
 const key = config.API_KEY;
 
@@ -97,6 +99,7 @@ export default function Login({ setNome },{setRegistro}) {
       <h1 className="title">LoLMancers</h1>
       
     </div>
+  
    
     <div className="login-wrapper">
       <h1 className='title2'>Por favor, faça o Login</h1>
@@ -114,10 +117,13 @@ export default function Login({ setNome },{setRegistro}) {
         </div>
         
       </form>
-      <div>Deseja se cadastrar?:</div>
+      <h1 className='title2'>Deseja se cadastrar? Clique aqui:</h1>
       <form onSubmit={cadastrado}>
+      <div className='form'>
         
-      <button className='btn'type="submit">Cadastro</button>
+        <button className='btn' type="submit">Cadastro</button>
+        
+      </div>
       </form>
       {loginfalha==true?
       <p className='title2'>Login negado!</p>:null}

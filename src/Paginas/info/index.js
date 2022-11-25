@@ -53,9 +53,10 @@ export default function Info(props,{setRegistro}) {
       <Link to ='/perfil' style={{ textDecoration: 'none' }}>
         <button className='btnbar'>Meu Perfil</button>
       </Link>
-      <button className='btn'onClick={logout}>Logout</button>
+      <button className='btnbar'onClick={logout}>Logout</button>
     </div>
     </div>
+    
     </div>
     );
 }

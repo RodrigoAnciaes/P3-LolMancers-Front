@@ -97,14 +97,19 @@ export default function Registro({ setRegistro }) {
           <button className='btn'type="submit">Register</button>
         </div>
       </form>
-      <div>Já possui cadastro? Clique aqui:</div>
+      
+      <h1 className='title2'>Já possui cadastro? Clique aqui:</h1>
       <form onSubmit={cadastrado}>
-      <button className='btn'type="submit">Login</button>
+      <div className='form'>
+        
+        <button className='btn' type="submit">Login</button>
+        
+      </div>
       </form>
       {cadastrofeitosucesso==true?
       <p className='title2'>Cadastro feito com sucesso!</p>:null}
       {cadastronegado==true?
-      <p className='title2'>Cadastro negado, usuário já foi cadastrado!</p>:null}
+      <h1 className='title2'> Cadastro negado <br/>usuário já cadastrado!</h1>:null}
     </div>
     </div>
   )
