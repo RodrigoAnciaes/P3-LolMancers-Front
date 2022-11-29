@@ -92,7 +92,7 @@ export default function Registro({ setRegistro }) {
     <div className="login-wrapper">
     {cadastronegado==true?
       <Alert key='danger' variant='danger'>
-      Login negado! Usuário já cadastrado!
+      Registro negado! Usuário já cadastrado!
       </Alert>:null}
       <h1 className='title2'>Por favor, faça seu cadastro</h1>
       <form onSubmit={handleSubmit}>
