@@ -13,54 +13,37 @@ export default function Maestria(props){
 
     function getSummonerId(name){
         const linkSummonerId = "https://br1.api.riotgames.com/lol/summoner/v4/summoners/by-name/"+name+"?api_key="+config.API_KEY;
-        return axios.get(linkSummonerId)
-            .then(function(response){
-                console.log(response.data.id);
-                return response.data.id})
-            .catch(function(error){
-                console.log(error);});
+        return axios.get(linkSummonerId).then(function(response){
+            console.log(response.data.id);
+            return response.data.id
+            }).catch(function(error){
+            console.log(error);
+        });
     }
 
     async function getMastery(name, n){
         const summonerId = await getSummonerId(name); 
         const linkMastery = "https://br1.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/"+summonerId+"?api_key="+config.API_KEY;
+        // console.log(linkMastery);
         axios.get(linkMastery)
             .then(function(mastery){
-<<<<<<< HEAD
-                console.log(mastery.data);
-                const championId = mastery.data[0].championId;
-                const championPoints = mastery.data[0].championPoints;
-=======
         console.log(mastery.data);
         const championId = mastery.data[n].championId;
         const championPoints = mastery.data[n].championPoints;
         console.log("championId: "+championId);
         console.log("championPoints: "+championPoints);
->>>>>>> ded3135b8d5f14522925e7bd184cafde42ced65d
 
-                const linkChampion = "http://ddragon.leagueoflegends.com/cdn/11.6.1/data/pt_BR/champion.json";
-                axios.get(linkChampion)
-                    .then(function(champion){
-                        const championName = Object.keys(champion.data.data).find(key => champion.data.data[key].key == championId);
-                        const championImage = champion.data.data[championName].image.full;
-                        setChampion({name: championName, image: championImage});
-                        setMaestria({championName: championName, championPoints: championPoints});})
-                    .catch(function(erro){console.log(erro)})})
-            .catch(function(erro){console.log(erro)});
-    }
-
-    async function getChampionScores(name){
-        const summonerId = await getSummonerId(name); 
-        const linkChampionScores = "https://br1.api.riotgames.com/lol/champion-mastery/v4/scores/by-summoner/"+summonerId+"?api_key="+config.API_KEY;
-        console.log(linkChampionScores);
-        const championScores = await axios.get(linkChampionScores)
-            .then(function(response){
-                console.log(response.data)
-                return response.data})
-            .catch(function(erro){
-                console.log(erro)})
-        
-    }
+        const linkChampion = "http://ddragon.leagueoflegends.com/cdn/11.6.1/data/pt_BR/champion.json";
+        axios.get(linkChampion)
+            .then(function(champion){
+                // the champion object has the champion name as its key and contains the champion data including the champion id named key
+            const championName = Object.keys(champion.data.data).find(key => champion.data.data[key].key == championId);
+            const championImage = champion.data.data[championName].image.full;
+            setChampion({name: championName, image: championImage});
+            setMaestria({championName: championName, championPoints: championPoints});
+        }
+                ).catch(function(erro){console.log(erro)})
+}).catch(function(erro){console.log(erro)});}
 
 async function getMastery2(name, n){
     const summonerId = await getSummonerId(name); 
@@ -111,12 +94,6 @@ async function getMastery3(name, n){
             ).catch(function(erro){console.log(erro)})
 }).catch(function(erro){console.log(erro)});}
 
-<<<<<<< HEAD
-    useEffect(()=>{
-        getMastery(props.name);
-        getChampionScores(props.name);
-    },[]);
-=======
 
 // its needed to get the 3 top maestries from getMastery
     useEffect(() => {
@@ -124,7 +101,6 @@ async function getMastery3(name, n){
         getMastery2(props.name, 1);
         getMastery3(props.name, 2);
     }, []);
->>>>>>> ded3135b8d5f14522925e7bd184cafde42ced65d
 
     return(
         <div>
@@ -132,7 +108,7 @@ async function getMastery3(name, n){
             <div className="container">
                 <div className="row">
                     <div className="col-12">
-                        <h1>Maestria</h1>
+                        <h1>Em que ele é bom?</h1>
                     </div>
                 </div>
                 <div className="row">
