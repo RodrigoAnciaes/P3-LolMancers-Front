@@ -26,7 +26,7 @@ export default function Navbar(){
       <Link to ="/Partidas" style={{ textDecoration: 'none' }}>
         <button className='btnbar'>Partidas</button>
       </Link>
-      <Link to = "/perfil" style={{ textDecoration: 'none' }}>
+      <Link to = "/maestria" style={{ textDecoration: 'none' }}>
         <button className='btnbar'>Perfil</button>
       </Link>
       <Link to ="/" style ={{ textDecoration: 'none' }}>
