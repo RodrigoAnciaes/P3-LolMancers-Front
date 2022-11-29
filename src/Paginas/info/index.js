@@ -35,9 +35,6 @@ export default function Info(props,{setRegistro}) {
         </> 
         : 
         <><p className='UserNick'>No player data</p></>}
-        <Link to="/maestria" style={{ textDecoration: 'none' }}>
-          <button className='btn-perfil'>Maestria</button>
-        </Link>
     </div>
     <div className='NomeHeader'>O que você deseja fazer?</div>
     <div className="rotas">
@@ -50,7 +47,7 @@ export default function Info(props,{setRegistro}) {
       <Link to ='/Partidas' style={{ textDecoration: 'none' }}>
         <button className='btnbar'>Últimas 5 partidas</button>
       </Link>
-      <Link to ='/perfil' style={{ textDecoration: 'none' }}>
+      <Link to ='/maestria' style={{ textDecoration: 'none' }}>
         <button className='btnbar'>Meu Perfil</button>
       </Link>
       <button className='btnbar'onClick={logout}>Logout</button>
