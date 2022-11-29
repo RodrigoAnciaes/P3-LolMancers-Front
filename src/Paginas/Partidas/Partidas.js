@@ -7,6 +7,7 @@ import Partida from '../../components/Partida/Partida';
 import * as config from '../../../src/config.js'
 import Navbar from '../../components/Navbar/navbar';
 
+
 export default function Partidas(props) { 
     const [gameList,setGamelist]=useState([]);
     const [gameListAtualizada,setGamelistAtualizada]=useState([]);
