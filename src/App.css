@@ -471,35 +471,64 @@ html{
 .maestria-container{
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
   align-items: center;
   padding: 1rem;
   width: 52rem;
   border-radius: 0.5rem;
-  /* box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22); */
   margin: 0rem;
-  /* background-color: #e01a1a; */
 }
 
 .maestria-content{
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
   font-family: 'Permanent Marker', cursive;
   align-items: center;
-  padding: 1rem;
-  /* width: 75%; */
   border-radius: 0.5rem;
-  /* box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22); */
-  margin: 0rem;
-  background-color: #786a6a;
 }
 
 .maestria-one{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  /* align-items: center; */
+}
+
+.maestria-champion{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  margin: 0.5rem;
+  background-color: #786a6a;
+}
+
+.maestria-champion-image{
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  margin: 0.5rem;
+  align-self: center;
+}
+
+.maestria-champion-info{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  margin: 0.5rem;
+} 
+
+.maestria-score{
+  align-items: center;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  margin: 0rem;
 }
 
 span{
