@@ -500,5 +500,8 @@ html{
   flex-direction: row;
   justify-content: space-between;
   /* align-items: center; */
+}
 
+span{
+  margin: 5px;
 }
