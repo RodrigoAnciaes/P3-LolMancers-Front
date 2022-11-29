@@ -6,14 +6,16 @@ import axios from 'axios';
 
 import * as config from '../../config.js'
 import Navbar from '../Navbar/navbar';
-
+import Spinner from 'react-bootstrap/Spinner';
 export default function Partida(props) { 
     
     return (
         <div className="container_partidas">
         <div className="NomeHeader">Últimas 5 partidas</div>
         {props.gameList[0] ==  null ? 
-        <div>Carregando</div> :
+        <Spinner animation="border" role="status" style={{ width: "5rem", height: "5rem" }}>
+        <span className="visually-hidden">Loading...</span>
+      </Spinner>:
         props.gameList.map((gameData,index) => 
         <div className={`games${gameData.info.win == 'Vitória' ? "win": ""}`}>
         <h2>Game {index+1} </h2>

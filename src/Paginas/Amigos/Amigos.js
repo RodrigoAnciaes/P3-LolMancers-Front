@@ -163,7 +163,7 @@ export default function Amigos(props) {
     <div className="NomeHeader">Lista de Amigos</div>
       <div className="form">
         <input className="autoresize" placeholder="Nick do seu amigo" type="texto" onChange={e => setPesquisa(e.target.value)}></input>
-        <button className='btn' onClick ={savePlayer}>Adicione um amigo!</button>
+        <button className='botao' onClick ={savePlayer}>Adicione um amigo!</button>
         
         
       </div>
@@ -175,7 +175,7 @@ export default function Amigos(props) {
           
               <img alt='icon'className='UserIcon' width="100" height="100" key={player.id} src={"https://ddragon.leagueoflegends.com/cdn/12.20.1/img/profileicon/"+player.profile_icon_id+".png"}></img>
               
-              <button className='btn' value={player.summoner_name} onClick ={e=>deletePlayers(e.target.value)}>Deletar amigo!</button>
+              <button className='botao' value={player.summoner_name} onClick ={e=>deletePlayers(e.target.value)}>Deletar amigo!</button>
               
             </div>
       

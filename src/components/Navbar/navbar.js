@@ -26,8 +26,8 @@ export default function Navbar(){
       <Link to ="/Partidas" style={{ textDecoration: 'none' }}>
         <button className='btnbar'>Partidas</button>
       </Link>
-      <Link to = "/perfil" style={{ textDecoration: 'none' }}>
-        <button className='btnbar'>Perfil</button>
+      <Link to = "/maestria" style={{ textDecoration: 'none' }}>
+        <button className='btnbar'>Maestrias</button>
       </Link>
       <Link to ="/" style ={{ textDecoration: 'none' }}>
         <button className='btnbar'onClick={logout}>Logout</button>

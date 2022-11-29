@@ -102,6 +102,10 @@ export default function Login({ setNome },{setRegistro}) {
   
    
     <div className="login-wrapper">
+    {loginfalha==true?
+      <Alert key='danger' variant='danger'>
+      Login negado! Reveja o usuário ou senha!
+      </Alert>:null}
       <h1 className='title2'>Por favor, faça o Login</h1>
       
       <form onSubmit={handleSubmit}>
@@ -112,7 +116,7 @@ export default function Login({ setNome },{setRegistro}) {
           <input className='autoresize'placeholder='Nick'type="texto" onChange={e => setUserName(e.target.value)}/>
           <input className='autoresize'placeholder='Senha'type="texto" onChange={e => setPassword(e.target.value)}/>
 
-          <button className='btn'type="submit">Log</button>
+          <button className='botao'type="submit">Log</button>
           
         </div>
         
@@ -121,12 +125,12 @@ export default function Login({ setNome },{setRegistro}) {
       <form onSubmit={cadastrado}>
       <div className='form'>
         
-        <button className='btn' type="submit">Cadastro</button>
+        <button className='botao' type="submit">Cadastro</button>
         
       </div>
       </form>
       {loginfalha==true?
-      <p className='title2'>Login negado!</p>:null}
+      <p className='title2'></p>:null}
       
     </div>
     </div>

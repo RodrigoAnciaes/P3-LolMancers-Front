@@ -5,7 +5,7 @@ import logo from '../../../src/poro.jpg';
 import axios from 'axios';
 import * as config from '../../config.js'
 import { Link,Navigate} from "react-router-dom";
-
+import Alert from 'react-bootstrap/Alert';
 
 const key = config.API_KEY;
 
@@ -87,14 +87,19 @@ export default function Registro({ setRegistro }) {
       
       
     </div>
+    
    
     <div className="login-wrapper">
+    {cadastronegado==true?
+      <Alert key='danger' variant='danger'>
+      Registro negado! Usuário já cadastrado!
+      </Alert>:null}
       <h1 className='title2'>Por favor, faça seu cadastro</h1>
       <form onSubmit={handleSubmit}>
       <div className="form">
           <input className='autoresize'placeholder='Nick'type="texto" onChange={e => setUserName(e.target.value)}/>
           <input className='autoresize'placeholder='Senha'type="senha" onChange={e => setPassword(e.target.value)}/>
-          <button className='btn'type="submit">Register</button>
+          <button className='botao'type="submit">Register</button>
         </div>
       </form>
       
@@ -102,15 +107,15 @@ export default function Registro({ setRegistro }) {
       <form onSubmit={cadastrado}>
       <div className='form'>
         
-        <button className='btn' type="submit">Login</button>
+        <button className='botao' type="submit">Login</button>
         
       </div>
       </form>
       {cadastrofeitosucesso==true?
       <p className='title2'>Cadastro feito com sucesso!</p>:null}
-      {cadastronegado==true?
-      <h1 className='title2'> Cadastro negado <br/>usuário já cadastrado!</h1>:null}
+      
     </div>
+        
     </div>
   )
 }

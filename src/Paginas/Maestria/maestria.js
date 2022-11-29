@@ -10,12 +10,12 @@ export default function Maestria(props){
   
     function getSummonerId(name){
         const linkSummonerId = "https://br1.api.riotgames.com/lol/summoner/v4/summoners/by-name/"+name+"?api_key="+config.API_KEY;
-        return axios.get(linkSummonerId)
-            .then(function(response){
-                // console.log(response.data.id);
-                return response.data.id})
-            .catch(function(error){
-                console.log(error);});
+        return axios.get(linkSummonerId).then(function(response){
+            console.log(response.data.id);
+            return response.data.id
+            }).catch(function(error){
+            console.log(error);
+        });
     }
   
     async function getMastery(name){
