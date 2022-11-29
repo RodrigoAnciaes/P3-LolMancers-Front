@@ -9,7 +9,7 @@ import Info from "./Paginas/info";
 import Amigos from "./Paginas/Amigos/Amigos";
 import Partidas from "./Paginas/Partidas/Partidas";
 import Registro from "./Paginas/Registro/Registro";
-import Maestria from "./components/Maestria/maestria";
+import Maestria from "./Paginas/Maestria/maestria";
 
 import Rotacao from "./Paginas/rotacao/rotacao";
 import {Routes,Route} from "react-router-dom";
