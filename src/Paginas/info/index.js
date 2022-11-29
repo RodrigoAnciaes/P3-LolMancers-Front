@@ -48,7 +48,7 @@ export default function Info(props,{setRegistro}) {
         <button className='btnbar'>Últimas 5 partidas</button>
       </Link>
       <Link to ='/maestria' style={{ textDecoration: 'none' }}>
-        <button className='btnbar'>Meu Perfil</button>
+        <button className='btnbar'>Maestrias</button>
       </Link>
       <button className='btnbar'onClick={logout}>Logout</button>
     </div>
