@@ -31,7 +31,7 @@ export default function Maestria(props){
             .catch(function(erro){
                 console.log(erro)})
   
-        for (let i=0; i<3; i++){
+        for (let i=0; i<10; i++){
             const championId = mastery[i].championId;
             const championPoints = mastery[i].championPoints;
             const linkChampion = "http://ddragon.leagueoflegends.com/cdn/11.6.1/data/pt_BR/champion.json";
