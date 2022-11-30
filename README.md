@@ -4,6 +4,6 @@
 Instalação necessária:
 npm install react-bootstrap bootstrap
 
-### Importante!
+## Importante!
 - o código final do projeto se encontra na branch "Final"
 - lembre-se de atualizar o token
