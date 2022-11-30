@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import * as config from '../../config.js'
-import Navbar from '../../components/Navbar/navbar'; 
+import Navbar from '../../components/Navbar/navbar';
+import Spinner from 'react-bootstrap/Spinner';
 
 export default function Maestria(props){
     const [maestria,setMaestria]=useState([]);
@@ -76,7 +77,13 @@ export default function Maestria(props){
             </div>
         )}
     </>)
-    
+
+    const spinnerContainer = (<>
+        <Spinner animation="border" role="status" style={{ width: "2rem", height: "2rem" }}>
+            <span className="visually-hidden">Loading...</span>
+        </Spinner>
+    </>)
+
     return(
         <div className="maestria">  
             <Navbar />
@@ -84,10 +91,9 @@ export default function Maestria(props){
                 <h2 className="maestria-title">Maestria de {props.name}</h2> 
                 <p class="maestria-score">Pontuação de maestria: {score}</p>
                 <div className="maestria-content">
-                    {isLoading ? <p>Carregando...</p> : championsMasteryContainer}
+                    {isLoading ? spinnerContainer : championsMasteryContainer}
                 </div>  
             </div>
-            {/* <p class="maestria-score">Pontuação de maestria: {score}</p> */}
         </div>
     )  
 }
