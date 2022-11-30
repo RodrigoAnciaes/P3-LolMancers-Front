@@ -89,7 +89,7 @@ export default function Maestria(props){
             <Navbar />
             <div className="maestria-container">
                 <h2 className="maestria-title">Maestria de {props.name}</h2> 
-                <p class="maestria-score">Pontuação de maestria: {score}</p>
+                <p class="maestria-score">Nível total de maestria: {score}</p>
                 <div className="maestria-content">
                     {isLoading ? spinnerContainer : championsMasteryContainer}
                 </div>  
