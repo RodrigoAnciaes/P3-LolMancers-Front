@@ -85,11 +85,11 @@ export default function Maestria(props){
     </>)
 
     return(
-        <div className="maestria">  
+        <div className="container_partidas">  
             <Navbar />
             <div className="maestria-container">
-                <h2 className="maestria-title">Maestria de {props.name}</h2> 
-                <p class="maestria-score">Nível total de maestria: {score}</p>
+                <h2 className="NomeHeader">Maestria de {props.name}</h2> 
+                <p class="UserNick">Nível total de maestria: {score}</p>
                 <div className="maestria-content">
                     {isLoading ? spinnerContainer : championsMasteryContainer}
                 </div>  

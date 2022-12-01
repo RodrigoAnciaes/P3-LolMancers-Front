@@ -29,7 +29,7 @@ export default function Partidas(props) {
 
     async function getMatches() {
         //API CALL
-        console.log(props.name)
+       
         const PUUID = await getPlayerPUUID(props.name);
         const API_Matches = "https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/"+PUUID+"/ids?api_key="+key;
 
