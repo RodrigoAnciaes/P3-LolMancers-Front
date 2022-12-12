@@ -6,7 +6,6 @@ import axios from 'axios';
 import * as config from '../../config.js'
 import Alert from 'react-bootstrap/Alert';
 
-
 const key = config.API_KEY;
 
 function AtualizaPlayer(username){
@@ -20,7 +19,7 @@ function AtualizaPlayer(username){
     
     console.log('entrou get api string, preparando para post no user')
     console.log(response.data.name)
-    var APIPlayer = "http://127.0.0.1:8000/api/user/?summoner_name="+username;
+    var APIPlayer = "https://p3-lolmancers-back-production-f2a7.up.railway.app/api/user/?summoner_name="+username;
     console.log(APIPlayer);
     // Post para o banco de dados com o body no formato aplication/json
     //axios.get(APIPlayer);
@@ -44,7 +43,7 @@ function AtualizaPlayer(username){
 async function loginUser(username,password) {
   
   return axios
-  .post("http://127.0.0.1:8000/api/login/",{
+  .post("https://p3-lolmancers-back-production-f2a7.up.railway.app/api/login/",{
     "username": username,
     "password":password
   })
@@ -60,7 +59,7 @@ async function loginUser(username,password) {
  async function autenticaUsuario(token) {
   
   return axios
-  .get("http://127.0.0.1:8000/api/get_user/",{headers:{"Authorization":`Token ${token.token}`}}
+  .get("https://p3-lolmancers-back-production-f2a7.up.railway.app/api/get_user/",{headers:{"Authorization":`Token ${token.token}`}}
   )
  }
 
@@ -114,7 +113,7 @@ export default function Login({ setNome },{setRegistro}) {
       
         
           <input className='autoresize'placeholder='Nick'type="texto" onChange={e => setUserName(e.target.value)}/>
-          <input className='autoresize'placeholder='Senha'type="texto" onChange={e => setPassword(e.target.value)}/>
+          <input className='autoresize'placeholder='Senha'type="password" onChange={e => setPassword(e.target.value)}/>
 
           <button className='botao'type="submit">Log</button>
           

@@ -18,7 +18,7 @@ function AtualizaPlayer(username){
   axios.get(APIString).then(function(response){
     //sucesso
     console.log(response.data);
-    var APIPlayer = "https://127.0.0.1:8000/api/user/?summoner_name="+username;
+    var APIPlayer = "https://p3-lolmancers-back-production-f2a7.up.railway.app/api/user/?summoner_name="+username;
    
     // Post para o banco de dados com o body no formato aplication/json
     axios.post(APIPlayer, {
@@ -68,7 +68,7 @@ export default function Registro({ setRegistro }) {
   }
 
   function cadastraUser(username,password) {
-    var APIString = "http://127.0.0.1:8000/api/register/";
+    var APIString = "https://p3-lolmancers-back-production-f2a7.up.railway.app/api/register/";
     axios.post(APIString,{
       "username": username,
       "password": password,
@@ -98,7 +98,7 @@ export default function Registro({ setRegistro }) {
       <form onSubmit={handleSubmit}>
       <div className="form">
           <input className='autoresize'placeholder='Nick'type="texto" onChange={e => setUserName(e.target.value)}/>
-          <input className='autoresize'placeholder='Senha'type="senha" onChange={e => setPassword(e.target.value)}/>
+          <input className='autoresize'placeholder='Senha'type="password" onChange={e => setPassword(e.target.value)}/>
           <button className='botao'type="submit">Register</button>
         </div>
       </form>
