@@ -48,7 +48,7 @@ export default function Amigos(props) {
 
   function getAmigos(name){
     
-    var APISavedPlayers = "http://127.0.0.1:8000/api/saved_player_operations/?summoner_name="+props.name.toLowerCase()
+    var APISavedPlayers = "https://p3-lolmancers-back-production-f2a7.up.railway.app/api/saved_player_operations/?summoner_name="+props.name.toLowerCase()
     
     axios.get(APISavedPlayers,{headers:{"Authorization":`Token ${props.tokenzada}`}})
       .then((response) => {
@@ -59,7 +59,7 @@ export default function Amigos(props) {
       
   }
   function getPlayers(name){
-    var APIplayers = "http://127.0.0.1:8000/api/user_operations/";
+    var APIplayers = "https://p3-lolmancers-back-production-f2a7.up.railway.app/api/user_operations/";
     axios.get(APIplayers)
       .then((response) => {
         setPlayers(response.data);
@@ -69,7 +69,7 @@ export default function Amigos(props) {
   function deletePlayers(name){
     var lower = name.toLowerCase();
     console.log(lower);
-    var APISavedPlayers = "http://127.0.0.1:8000/api/saved_player_operations/?summoner_name="+props.name.toLowerCase()+"&saved_player="+lower;
+    var APISavedPlayers = "https://p3-lolmancers-back-production-f2a7.up.railway.app/api/saved_player_operations/?summoner_name="+props.name.toLowerCase()+"&saved_player="+lower;
     //axios.delete(APISavedPlayers,{"summoner_name":lower},{headers:{"Authorization":`Token ${props.tokenzada}`}}).then((response) => {setAtualiza(atualiza+1);});
     axios({
       method:'DELETE',
@@ -102,7 +102,7 @@ export default function Amigos(props) {
   
   function savePlayer(event){
     console.log(props.tokenzada)
-    var APISavedPlayers = "http://127.0.0.1:8000/api/saved_player_operations/?summoner_name="+props.name.toLowerCase()+"&saved_player="+pesquisa.toLowerCase();
+    var APISavedPlayers = "https://p3-lolmancers-back-production-f2a7.up.railway.app/api/saved_player_operations/?summoner_name="+props.name.toLowerCase()+"&saved_player="+pesquisa.toLowerCase();
     var APIString = "https://br1.api.riotgames.com/lol/summoner/v4/summoners/by-name/"+pesquisa+"?api_key="+key;
     //console.log("Pesquisa:"+pesquisa)
     
@@ -111,7 +111,7 @@ export default function Amigos(props) {
     axios.get(APIString).then(function(response){
       //sucesso
       console.log(response.data)
-      var APIPlayer = "http://127.0.0.1:8000/api/user_operations/";
+      var APIPlayer = "https://p3-lolmancers-back-production-f2a7.up.railway.app/api/user_operations/";
       
       // Post para o banco de dados com o body no formato aplication/json
       axios.post(APIPlayer, {
